@@ -4,6 +4,9 @@
 {% set firestore = true and 'moonrider-prod' or 'moonrider-dev' %}
 {% set firekey = true and 'AIzaSyAilakXLvMgwPcBcHs3oys51eLp4yrfz0w' or 'AIzaSyALCaDKg0b7aD3nOyRv_f5RTZ1vedrGyWw' %}
 
+<!-- Include your custom component file -->
+<script src="components/vr-motion-gain.js"></script>
+
 <a-scene
   bind__beat-generator="challengeId: challenge.id; difficulty: challenge.difficulty; beatmapCharacteristic: challenge.beatmapCharacteristic; gameMode: gameMode; has3DOFVR: has3DOFVR; hasSongLoadError: hasSongLoadError; isPlaying: isPlaying; isZipFetching: isZipFetching; menuSelectedChallengeId: menuSelectedChallenge.id; songDuration: challenge.metadata.duration; speed: speed"
   bind__beat-system="gameMode: gameMode; hasVR: hasVR; isLoading: isLoading; isPlaying: isPlaying"
@@ -139,6 +142,7 @@
         camera="far: 10000"
         look-controls
         player-height
+        vr-motion-gain="gain: 0.5"
         wasd-controls="acceleration: 15"></a-entity>
       <a-entity
         id="cameraWallCollider"
