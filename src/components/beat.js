@@ -165,8 +165,12 @@ AFRAME.registerComponent('beat-system', {
   },
 
   checkCollision: function (beat, weapon1, weapon2) {
+    var weapon1Id = weapon1.el.id;
+    var weapon2Id = weapon2.el.id;
+    console.log('Weapon ID 1/2:', weapon1Id, weapon2Id, beat.data.type);
     // Mine.
     if (beat.data.type === MINE) {
+      console.log('[Mine] Weapon ID 1/2:', weapon1Id, weapon2Id, beat.data.type);
       if (weapon1.checkCollision(beat)) {
         beat.onHit(weapon1.el);
         return;
@@ -178,10 +182,14 @@ AFRAME.registerComponent('beat-system', {
     }
 
     // Successful hit, let the beat handle further processing.
+    //console.log('[log]     weapon2: ', weapon2.el);
     const correctWeapon = WEAPON_COLORS[weapon1.el.dataset.hand] === beat.data.color
       ? weapon1
       : weapon2;
+    
+    
     if (correctWeapon.checkCollision(beat)) {
+      console.log('[log] hit: ', correctWeapon.el.dataset.hand);
       beat.onHit(correctWeapon.el);
       return;
     }
@@ -316,6 +324,7 @@ AFRAME.registerComponent('beat', {
     this.el.appendChild(this.blockEl);
     this.initMesh();
 
+    console.log('[debug] data type: ', this.data.type);
     if (this.data.type === MINE) {
       this.poolName = 'pool__beat-mine';
     } else {
