@@ -36,11 +36,11 @@ AFRAME.registerComponent('vr-motion-gain', {
     //dy *= (gain - 1);
     //dz *= (gain - 1);
 
-    console.log('[applying] motion diff:', dx, dy, dz, gain);
+    //console.log('[applying] motion diff:', dx, dy, dz, gain);
     // Update the cameraRig's position by adding the modified position change.
     var cameraRigPosition = this.cameraRig.getAttribute('position');
 
-    console.log('CameraRig b4:', cameraRigPosition.x, cameraRigPosition.y, cameraRigPosition.z, gain);
+    //console.log('CameraRig b4:', cameraRigPosition.x, cameraRigPosition.y, cameraRigPosition.z, gain);
 
     this.cameraRig.setAttribute('position', {
       x: cameraRigPosition.x + dx,
@@ -49,7 +49,7 @@ AFRAME.registerComponent('vr-motion-gain', {
     });
     
     var cameraRigPosition = this.cameraRig.getAttribute('position');
-    console.log('CameraRig:', cameraRigPosition.x, cameraRigPosition.y, cameraRigPosition.z, gain);
+    //console.log('CameraRig:', cameraRigPosition.x, cameraRigPosition.y, cameraRigPosition.z, gain);
     // Update lastPosition with the new camera position.
     this.lastPosition.copy(position);
   },
