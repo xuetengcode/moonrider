@@ -162,9 +162,8 @@
 
       {% macro bodyObjectRig (hand, otherHand) %}
       <a-entity id="{{ hand }}Hand"
-        geometry="primitive: box; width: 0.1; height: 0.1; depth: 0.02"
+        
         bind__visible="isPlaying"
-        material="color: red"
         follow-camera
         position="0 1.5 -1"
         class="weapon"
@@ -232,21 +231,24 @@
           bind__visible="isPlaying && gameMode === 'punch'"
           bind__position="has3DOFVR && '0 0 -0.75' || '0 0 0'"
           rotation="0 0 0">
+            <!--
             <a-entity
               class="punchFist"
               obj-model="obj: #{{ hand }}FistObj"
               materials="name: {{ hand }}Fist"
               scale="2 2 2"></a-entity>
-            <a-entity
-              class="punchBbox"
-              geometry="primitive: box; width: 0.4; height: 3; depth: 0.15"
-              material="shader: flat; opacity: 0.5"
-              position="0 0.05 0.1"
-              rotation="0 0 0"
-              visible="false"></a-entity>
+            
             <a-entity
               obj-model="obj: #{{ hand }}FistWeaponObj"
               materials="name: {{ hand }}FistWeapon"></a-entity>
+            -->
+            <a-entity
+              class="punchBbox"
+              geometry="primitive: box; width: 0.4; height: 30; depth: 0.15"
+              material="color: pink; shader: flat; opacity: 0.5"
+              position="0 -10 0.1"
+              rotation="0 0 0"
+              visible="True"></a-entity>
         </a-entity>
 
         <!-- Ride. -->

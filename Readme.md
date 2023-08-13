@@ -25,6 +25,20 @@ adb connect <ipaddress>:5555
 Go to ``chrome://inspect/#devices``
 
 
-## ChatGPT status
-
-- entire scene.html sent
+## major changes
+- ```beat-generator.js```: L77-79, changed to 1 height
+```
+  verticalPositionsHumanized: {
+    0: 'bottom',
+    1: 'middle',
+    2: 'top'
+  },
+```
+to
+```
+  verticalPositionsHumanized: {
+    0: 'middle',
+    1: 'middle',
+    2: 'middle'
+  },
+```

@@ -41,11 +41,15 @@ AFRAME.registerComponent('punch', {
   },
 
   checkCollision: (function () {
+    console.log('[log] in punch')
     const box = new THREE.Box3();
     const expand = new THREE.Vector3(0, 0, 0.2);
 
     return function (beat) {
       box.copy(beat.bbox).translate(beat.el.object3D.position).expandByScalar(0.1).expandByVector(expand);
+
+      console.log('Bounding box 1 position:', 'min:', box.min, 'max:', box.max);
+      console.log('Bounding box 2 position:', 'min:', this.bbox.min, 'max:', this.bbox.max, this.bbox.intersectsBox(box));
       return this.bbox.intersectsBox(box);
     };
   })()

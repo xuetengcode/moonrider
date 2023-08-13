@@ -187,9 +187,9 @@ AFRAME.registerComponent('beat-system', {
       ? weapon1
       : weapon2;
     
-    
+      console.log('[log] before check', correctWeapon.checkCollision(beat))
     if (correctWeapon.checkCollision(beat)) {
-      console.log('[log] hit: ', correctWeapon.el.dataset.hand);
+      console.log('[log] hit: ', correctWeapon.el.dataset.hand, correctWeapon.checkCollision(beat));
       beat.onHit(correctWeapon.el);
       return;
     }

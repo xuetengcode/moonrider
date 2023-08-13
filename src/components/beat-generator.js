@@ -74,9 +74,9 @@ AFRAME.registerComponent('beat-generator', {
   },
 
   verticalPositionsHumanized: {
-    0: 'bottom',
+    0: 'middle',
     1: 'middle',
-    2: 'top'
+    2: 'middle'
   },
 
   init: function () {
@@ -254,7 +254,8 @@ AFRAME.registerComponent('beat-generator', {
     if (noteInfo._type === 0) {
       color = 'red';
     } else if (noteInfo._type === 1) {
-      color = 'blue';
+      //color = 'blue';
+      color = 'red';
     } else {
       type = 'mine';
       color = undefined;
